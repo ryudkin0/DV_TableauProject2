@@ -1,0 +1,44 @@
+---
+title: "DV_RProject3"
+author: "Probe, Yudkin, Honganen"
+date: "Friday, April 12, 2015"
+output: html_document
+---
+
+##**Step 1:** Load the required packages
+
+```{r}
+
+source('../01 SQL Crostabs/Load_Packages.R', echo = TRUE)
+
+```
+
+##**Step 2:** Display the crosstabs
+
+###Rank Crosstab
+```{r}
+
+source('../01 SQL Crostabs/Rank_Crosstab.R', echo = TRUE)
+
+```
+
+###Difference Crosstab
+```{r}
+
+source('../01 SQL Crostabs/Difference_Crosstab.R', echo = TRUE)
+
+```
+
+###Nth Value Crosstab
+```{r}
+
+source('../01 SQL Crostabs/Nth_Crosstab.R', echo = TRUE)
+
+```
+
+###Cume Dist Crosstab
+```{r}
+
+source('../01 SQL Crostabs/CumeDist_Crosstab.R', echo = TRUE)
+
+```

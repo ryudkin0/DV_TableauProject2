@@ -1,0 +1,16 @@
+{
+    "contents" : "---\ntitle: \"DV_RProject3\"\nauthor: \"Probe, Yudkin, Honganen\"\ndate: \"Friday, April 12, 2015\"\noutput: html_document\n---\n\n##**Step 1:** Load the required packages\n\n```{r}\n\nsource('../01 SQL Crostabs/Load_Packages.R', echo = TRUE)\n\n```\n\n##**Step 2:** Display the crosstabs\n\n###Rank Crosstab\n```{r}\n\nsource('../01 SQL Crostabs/Rank_Crosstab.R', echo = TRUE)\n\n```\n\n###Difference Crosstab\n```{r}\n\nsource('../01 SQL Crostabs/Difference_Crosstab.R', echo = TRUE)\n\n```\n\n###Nth Value Crosstab\n```{r}\n\nsource('../01 SQL Crostabs/Nth_Crosstab.R', echo = TRUE)\n\n```\n\n###Cume Dist Crosstab\n```{r}\n\nsource('../01 SQL Crostabs/CumeDist_Crosstab.R', echo = TRUE)\n\n```\n",
+    "created" : 1428891843053.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "640737128",
+    "id" : "B5B2AFE",
+    "lastKnownWriteTime" : 1428893590,
+    "path" : "C:/Users/Ross/Google Drive/docs/UT/Spring 2015/DataVisualization/DV_TableauProject2/00 Doc/DV_TableauProject2_Writeup.Rmd",
+    "project_path" : "00 Doc/DV_TableauProject2_Writeup.Rmd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
