@@ -9,7 +9,7 @@ output: html_document
 
 ```{r}
 
-source('../01 SQL Crostabs/Load_Packages.R', echo = TRUE)
+source('../01 SQL Crosstabs/Load_Packages.R', echo = TRUE)
 
 ```
 
@@ -18,27 +18,27 @@ source('../01 SQL Crostabs/Load_Packages.R', echo = TRUE)
 ###Rank Crosstab
 ```{r}
 
-source('../01 SQL Crostabs/Rank_Crosstab.R', echo = TRUE)
+source('../01 SQL Crosstabs/Rank_Crosstab.R', echo = TRUE)
 
 ```
 
 ###Difference Crosstab
 ```{r}
 
-source('../01 SQL Crostabs/Difference_Crosstab.R', echo = TRUE)
+source('../01 SQL Crosstabs/Difference_Crosstab.R', echo = TRUE)
 
 ```
 
 ###Nth Value Crosstab
 ```{r}
 
-source('../01 SQL Crostabs/Nth_Crosstab.R', echo = TRUE)
+source('../01 SQL Crosstabs/Nth_Crosstab.R', echo = TRUE)
 
 ```
 
 ###Cume Dist Crosstab
 ```{r}
 
-source('../01 SQL Crostabs/CumeDist_Crosstab.R', echo = TRUE)
+source('../01 SQL Crosstabs/CumeDist_Crosstab.R', echo = TRUE)
 
 ```

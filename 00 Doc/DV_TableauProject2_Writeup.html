@@ -67,9 +67,9 @@ img {
 </div>
 
 
-<div id="step-1-load-the-required-packages-and-data" class="section level2">
-<h2><strong>Step 1:</strong> Load the required packages and data</h2>
-<pre class="r"><code>source('../00 Doc/Load_Packages.R', echo = TRUE)</code></pre>
+<div id="step-1-load-the-required-packages" class="section level2">
+<h2><strong>Step 1:</strong> Load the required packages</h2>
+<pre class="r"><code>source('../01 SQL Crosstabs/Load_Packages.R', echo = TRUE)</code></pre>
 <pre><code>## 
 ## &gt; library(&quot;bitops&quot;)
 ## 
@@ -112,38 +112,102 @@ img {
 ## &gt; require(grid)</code></pre>
 <pre><code>## Loading required package: grid</code></pre>
 </div>
-<div id="step-2-display-a-subset-of-the-dataframe" class="section level2">
-<h2><strong>Step 2:</strong> Display a subset of the dataframe</h2>
-<div id="mortgage-backed-security-1-data" class="section level3">
-<h3>Mortgage Backed Security #1 Data</h3>
+<div id="step-2-display-the-crosstabs" class="section level2">
+<h2><strong>Step 2:</strong> Display the crosstabs</h2>
+<div id="rank-crosstab" class="section level3">
+<h3>Rank Crosstab</h3>
+<pre class="r"><code>source('../01 SQL Crosstabs/Rank_Crosstab.R', echo = TRUE)</code></pre>
+<pre><code>## 
+## &gt; df &lt;- data.frame(fromJSON(getURL(URLencode(gsub(&quot;\n&quot;, 
+## +     &quot; &quot;, &quot;129.152.144.84:5001/rest/native/?query=\n\&quot;SELECT ID, STATE, CLTV, rank() \nOVER  .... [TRUNCATED] 
+## 
+## &gt; tbl_df(df)
+## Source: local data frame [4,906 x 4]
+## 
+##      ID STATE CLTV CLTV_RANK
+## 1   717    AK  120         1
+## 2  4472    LA  100         2
+## 3  4476    CA  100         2
+## 4  4479    CA  100         2
+## 5  4480    CA  100         2
+## 6  4481    MO  100         2
+## 7  4484    MI  100         2
+## 8  4487    CA  100         2
+## 9  4488    WA  100         2
+## 10 4491    MN  100         2
+## ..  ...   ...  ...       ...</code></pre>
 </div>
-<div id="mortgage-backed-security-2-data" class="section level3">
-<h3>Mortgage Backed Security #2 Data</h3>
+<div id="difference-crosstab" class="section level3">
+<h3>Difference Crosstab</h3>
+<pre class="r"><code>source('../01 SQL Crosstabs/Difference_Crosstab.R', echo = TRUE)</code></pre>
+<pre><code>## 
+## &gt; df &lt;- data.frame(fromJSON(getURL(URLencode(gsub(&quot;\n&quot;, 
+## +     &quot; &quot;, &quot;129.152.144.84:5001/rest/native/?query=\n\&quot;select ID, STATE, CLTV, last_value(max .... [TRUNCATED] 
+## 
+## &gt; tbl_df(df)
+## Source: local data frame [4,906 x 5]
+## 
+##      ID STATE CLTV MAX_CLTV CLTV_DIFF
+## 1   717    AK  120      120         0
+## 2  2124    AK   90      120        30
+## 3  4121    AL  100      100         0
+## 4  4196    AL  100      100         0
+## 5   867    AL   95      100         5
+## 6   424    AL   95      100         5
+## 7   590    AL   95      100         5
+## 8  3745    AL   95      100         5
+## 9  4394    AL   90      100        10
+## 10 1415    AL   90      100        10
+## ..  ...   ...  ...      ...       ...</code></pre>
 </div>
-<div id="mortgage-backed-security-combined-data" class="section level3">
-<h3>Mortgage Backed Security Combined Data</h3>
+<div id="nth-value-crosstab" class="section level3">
+<h3>Nth Value Crosstab</h3>
+<pre class="r"><code>source('../01 SQL Crosstabs/Nth_Crosstab.R', echo = TRUE)</code></pre>
+<pre><code>## 
+## &gt; df &lt;- data.frame(fromJSON(getURL(URLencode(gsub(&quot;\n&quot;, 
+## +     &quot; &quot;, &quot;129.152.144.84:5001/rest/native/?query=\n\&quot;SELECT ID, STATE, CLTV, nth_value(CLTV .... [TRUNCATED] 
+## 
+## &gt; names(df)[4] = &quot;2nd_CLTV&quot;
+## 
+## &gt; tbl_df(df)
+## Source: local data frame [4,906 x 4]
+## 
+##      ID STATE CLTV 2nd_CLTV
+## 1   717    AK  120       90
+## 2  2124    AK   90       90
+## 3  4121    AL  100      100
+## 4  4196    AL  100      100
+## 5   424    AL   95      100
+## 6   590    AL   95      100
+## 7   867    AL   95      100
+## 8  3745    AL   95      100
+## 9  3272    AL   90      100
+## 10  743    AL   90      100
+## ..  ...   ...  ...      ...</code></pre>
 </div>
-<div id="unemployment-data-by-state-in-2007" class="section level3">
-<h3>Unemployment Data by State in 2007</h3>
+<div id="cume-dist-crosstab" class="section level3">
+<h3>Cume Dist Crosstab</h3>
+<pre class="r"><code>source('../01 SQL Crosstabs/CumeDist_Crosstab.R', echo = TRUE)</code></pre>
+<pre><code>## 
+## &gt; df &lt;- data.frame(fromJSON(getURL(URLencode(gsub(&quot;\n&quot;, 
+## +     &quot; &quot;, &quot;129.152.144.84:5001/rest/native/?query=\n\&quot;select ID, STATE, CLTV, cume_dist() \n .... [TRUNCATED] 
+## 
+## &gt; tbl_df(df)
+## Source: local data frame [4,906 x 4]
+## 
+##      ID STATE CLTV CUME_DIST
+## 1   717    AK  120 1.0000000
+## 2  2124    AK   90 0.5000000
+## 3  4196    AL  100 1.0000000
+## 4  4121    AL  100 1.0000000
+## 5   424    AL   95 0.9333333
+## 6   590    AL   95 0.9333333
+## 7  3745    AL   95 0.9333333
+## 8   867    AL   95 0.9333333
+## 9  3847    AL   90 0.8000000
+## 10 1830    AL   90 0.8000000
+## ..  ...   ...  ...       ...</code></pre>
 </div>
-</div>
-<div id="step-3-display-3-interesting-data-wrangling-sets-visualizations" class="section level2">
-<h2><strong>Step 3:</strong> Display 3 Interesting Data Wrangling Sets / Visualizations</h2>
-<div id="chart-1" class="section level3">
-<h3>Chart 1</h3>
-<p>This chart compares the state unemployment rate with average mortgage interest rate from the combined data set of 2 mortgage backed securities</p>
-</div>
-<div id="chart-2" class="section level3">
-<h3>Chart 2</h3>
-<p>This chart</p>
-</div>
-<div id="chart-3" class="section level3">
-<h3>Chart 3</h3>
-<p>This chart filters the loans for the top 50% according to the rate and then graphs CLTV vs. Unempoyment</p>
-</div>
-</div>
-<div id="step-4-create-a-png-image-that-shows-a-characterization-of-the-categorical-columns-as-group-by-plots-and-measure-columns-as-histograms-for-our-main-table" class="section level2">
-<h2><strong>Step 4:</strong> Create a PNG image that shows a characterization of the categorical columns (as group by plots) and measure columns (as histograms) for our main table</h2>
 </div>
 
 
